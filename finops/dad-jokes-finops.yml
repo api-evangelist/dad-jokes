@@ -1,0 +1,39 @@
+name: Dad Jokes (icanhazdadjoke) FinOps
+description: >-
+  icanhazdadjoke is a free, unauthenticated public API operated by C653 Labs.
+  There are no usage-based charges, subscription fees, or overage costs. FinOps
+  considerations are limited to the consumer side (egress, compute, and
+  integration costs in the calling application).
+url: https://icanhazdadjoke.com/api
+providerCosts:
+  apiCalls: 0
+  currency: USD
+  model: free-forever
+  notes: >-
+    The provider charges nothing for API usage. No billing integration,
+    invoicing, or cost-management tooling is needed on the provider side.
+consumerConsiderations:
+  - type: Egress
+    description: >-
+      Each JSON joke response is very small (typically under 512 bytes).
+      Egress costs on the consumer's cloud infrastructure are negligible for
+      normal usage patterns.
+  - type: Caching
+    description: >-
+      Because jokes rarely change, consumers should cache responses
+      aggressively (e.g., TTL of hours or days for specific joke IDs) to
+      minimize outbound calls and latency.
+  - type: Image Responses
+    description: >-
+      The /j/{id}.png endpoint returns joke images. If these are used at
+      scale (e.g., embedding in emails or web pages), consumer-side CDN
+      caching or proxying is recommended to reduce repeated origin fetches.
+  - type: Search Pagination
+    description: >-
+      The /search endpoint limits results to 30 per page. Consumers performing
+      bulk searches should implement pagination loops and throttle requests to
+      avoid overwhelming the free-tier service.
+summary: >-
+  Zero provider cost. All FinOps effort is on the consumer side: cache joke
+  payloads, throttle search pagination, and proxy PNG images through a CDN for
+  high-traffic applications.

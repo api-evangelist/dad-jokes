@@ -1,0 +1,27 @@
+name: Dad Jokes (icanhazdadjoke) Plans & Pricing
+description: >-
+  icanhazdadjoke is a completely free service with no paid tiers, no API keys,
+  and no account registration required. All endpoints are available to any
+  consumer without cost.
+url: https://icanhazdadjoke.com/api
+plans:
+  - name: Free
+    description: >-
+      Full access to all icanhazdadjoke API endpoints at no cost. Includes
+      random joke retrieval, joke search, specific joke lookup, Slack-formatted
+      responses, and Discord bot support. No authentication or API key required.
+    url: https://icanhazdadjoke.com/api
+    price: 0
+    currency: USD
+    billingCycle: none
+    rateLimit: unspecified
+    features:
+      - Random joke endpoint (GET /)
+      - Specific joke by ID (GET /j/{id})
+      - Joke search with pagination (GET /search)
+      - Slack-formatted response (GET /slack)
+      - Joke as PNG image (GET /j/{id}.png)
+      - GraphQL endpoint (POST /graphql)
+      - JSON, plain-text, and HTML response formats via Accept header
+      - No API key or account required
+      - Custom User-Agent header encouraged but not enforced
