@@ -40,7 +40,7 @@ apis:
       - type: Documentation
         url: https://icanhazdadjoke.com/api
       - type: OpenAPI
-        url: https://icanhazdadjoke.com/api
+        url: https://raw.githubusercontent.com/api-evangelist/dad-jokes/refs/heads/main/openapi/dad-jokes-openapi.json
 common:
   - type: Website
     url: https://icanhazdadjoke.com/

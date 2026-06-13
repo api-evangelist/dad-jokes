@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://icanhazdadjoke.com/schema/joke-search-results",
+  "title": "JokeSearchResults",
+  "description": "Paginated search results from the icanhazdadjoke search endpoint",
+  "type": "object",
+  "required": ["current_page", "limit", "next_page", "previous_page", "results", "search_term", "status", "total_jokes", "total_pages"],
+  "properties": {
+    "current_page": {
+      "type": "integer",
+      "description": "Current page number",
+      "minimum": 1
+    },
+    "limit": {
+      "type": "integer",
+      "description": "Number of results per page",
+      "minimum": 1,
+      "maximum": 30
+    },
+    "next_page": {
+      "type": "integer",
+      "description": "Next page number"
+    },
+    "previous_page": {
+      "type": "integer",
+      "description": "Previous page number"
+    },
+    "results": {
+      "type": "array",
+      "description": "Array of matching jokes",
+      "items": {
+        "type": "object",
+        "required": ["id", "joke"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique joke identifier"
+          },
+          "joke": {
+            "type": "string",
+            "description": "The dad joke text"
+          }
+        }
+      }
+    },
+    "search_term": {
+      "type": "string",
+      "description": "The search term used in the query"
+    },
+    "status": {
+      "type": "integer",
+      "description": "HTTP status code",
+      "example": 200
+    },
+    "total_jokes": {
+      "type": "integer",
+      "description": "Total number of jokes matching the search term"
+    },
+    "total_pages": {
+      "type": "integer",
+      "description": "Total number of pages for the result set"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  "query": "{ joke { id joke permalink } }"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://icanhazdadjoke.com/schema/joke",
+  "title": "Joke",
+  "description": "A dad joke object returned by the icanhazdadjoke API",
+  "type": "object",
+  "required": ["id", "joke", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the joke",
+      "example": "R7UfaahVfFd"
+    },
+    "joke": {
+      "type": "string",
+      "description": "The dad joke text",
+      "example": "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
+    },
+    "status": {
+      "type": "integer",
+      "description": "HTTP status code echoed in the response body",
+      "example": 200
+    }
+  },
+  "additionalProperties": false
+}

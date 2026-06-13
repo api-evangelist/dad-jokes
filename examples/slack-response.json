@@ -1,0 +1,11 @@
+{
+  "attachments": [
+    {
+      "fallback": "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.",
+      "footer": "icanhazdadjoke.com | <https://icanhazdadjoke.com/j/R7UfaahVfFd>",
+      "text": "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
+    }
+  ],
+  "response_type": "in_channel",
+  "username": "icanhazdadjoke"
+}

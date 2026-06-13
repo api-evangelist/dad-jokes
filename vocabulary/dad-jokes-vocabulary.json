@@ -1,0 +1,106 @@
+{
+  "vocabulary": "icanhazdadjoke API Vocabulary",
+  "description": "Terms and concepts used by the icanhazdadjoke API",
+  "terms": [
+    {
+      "term": "joke",
+      "definition": "A dad joke — a short, typically pun-based or groan-inducing humorous statement",
+      "type": "noun",
+      "context": "Core resource of the API; each joke has a unique ID and text content"
+    },
+    {
+      "term": "id",
+      "definition": "A unique alphanumeric string identifying a specific joke in the database",
+      "type": "property",
+      "example": "R7UfaahVfFd"
+    },
+    {
+      "term": "status",
+      "definition": "HTTP status code echoed within the JSON response body (e.g. 200 for success)",
+      "type": "property"
+    },
+    {
+      "term": "term",
+      "definition": "A search keyword used to filter jokes in the /search endpoint",
+      "type": "query parameter"
+    },
+    {
+      "term": "page",
+      "definition": "The page number in a paginated result set, starting at 1",
+      "type": "query parameter"
+    },
+    {
+      "term": "limit",
+      "definition": "The maximum number of results to return per page; between 1 and 30, default 20",
+      "type": "query parameter"
+    },
+    {
+      "term": "current_page",
+      "definition": "The page number of the currently returned result set",
+      "type": "property"
+    },
+    {
+      "term": "next_page",
+      "definition": "The page number for the next page of results",
+      "type": "property"
+    },
+    {
+      "term": "previous_page",
+      "definition": "The page number for the previous page of results",
+      "type": "property"
+    },
+    {
+      "term": "total_jokes",
+      "definition": "Total number of jokes matching the search criteria",
+      "type": "property"
+    },
+    {
+      "term": "total_pages",
+      "definition": "Total number of pages for the result set given the current limit",
+      "type": "property"
+    },
+    {
+      "term": "results",
+      "definition": "Array of joke objects in a search result response",
+      "type": "property"
+    },
+    {
+      "term": "search_term",
+      "definition": "The search keyword echoed back in the search response",
+      "type": "property"
+    },
+    {
+      "term": "permalink",
+      "definition": "A permanent URL linking directly to a specific joke page on icanhazdadjoke.com",
+      "type": "property",
+      "example": "https://icanhazdadjoke.com/j/R7UfaahVfFd"
+    },
+    {
+      "term": "Accept header",
+      "definition": "HTTP request header used to specify desired response format: application/json, text/plain, or text/html",
+      "type": "request header"
+    },
+    {
+      "term": "User-Agent",
+      "definition": "HTTP request header identifying the calling library or application; recommended to include a contact URL",
+      "type": "request header"
+    },
+    {
+      "term": "response_type",
+      "definition": "Slack message visibility type; 'in_channel' makes the joke visible to all channel members",
+      "type": "property",
+      "context": "Slack integration"
+    },
+    {
+      "term": "attachments",
+      "definition": "Slack message attachment array containing formatted joke content",
+      "type": "property",
+      "context": "Slack integration"
+    },
+    {
+      "term": "dad joke",
+      "definition": "A type of humor characterized by corny, pun-based, or anti-climactic punchlines, often told by fathers",
+      "type": "concept"
+    }
+  ]
+}

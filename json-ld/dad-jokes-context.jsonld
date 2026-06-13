@@ -1,0 +1,68 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "icanhazdadjoke": "https://icanhazdadjoke.com/api#",
+    "id": "@id",
+    "joke": {
+      "@id": "schema:text",
+      "@type": "schema:Text"
+    },
+    "status": {
+      "@id": "schema:status",
+      "@type": "schema:Integer"
+    },
+    "permalink": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "search_term": {
+      "@id": "schema:query",
+      "@type": "schema:Text"
+    },
+    "current_page": {
+      "@id": "icanhazdadjoke:currentPage",
+      "@type": "schema:Integer"
+    },
+    "next_page": {
+      "@id": "icanhazdadjoke:nextPage",
+      "@type": "schema:Integer"
+    },
+    "previous_page": {
+      "@id": "icanhazdadjoke:previousPage",
+      "@type": "schema:Integer"
+    },
+    "total_jokes": {
+      "@id": "icanhazdadjoke:totalJokes",
+      "@type": "schema:Integer"
+    },
+    "total_pages": {
+      "@id": "icanhazdadjoke:totalPages",
+      "@type": "schema:Integer"
+    },
+    "limit": {
+      "@id": "icanhazdadjoke:limit",
+      "@type": "schema:Integer"
+    },
+    "results": {
+      "@id": "schema:itemListElement",
+      "@container": "@list"
+    }
+  },
+  "@graph": [
+    {
+      "@type": "schema:WebAPI",
+      "@id": "https://icanhazdadjoke.com",
+      "schema:name": "icanhazdadjoke API",
+      "schema:description": "Free REST API providing access to the internet's largest selection of dad jokes. No authentication required.",
+      "schema:url": "https://icanhazdadjoke.com/api",
+      "schema:documentation": "https://icanhazdadjoke.com/api",
+      "schema:termsOfService": "https://icanhazdadjoke.com/api",
+      "schema:provider": {
+        "@type": "schema:Organization",
+        "schema:name": "icanhazdadjoke",
+        "schema:url": "https://icanhazdadjoke.com"
+      }
+    }
+  ]
+}

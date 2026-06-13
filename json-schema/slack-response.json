@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://icanhazdadjoke.com/schema/slack-response",
+  "title": "SlackResponse",
+  "description": "Slack slash command response payload from the icanhazdadjoke /slack endpoint",
+  "type": "object",
+  "properties": {
+    "attachments": {
+      "type": "array",
+      "description": "Array of Slack message attachments containing the joke",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fallback": {
+            "type": "string",
+            "description": "Plain text fallback for clients that do not support attachments"
+          },
+          "footer": {
+            "type": "string",
+            "description": "Footer text with attribution and permalink"
+          },
+          "text": {
+            "type": "string",
+            "description": "The dad joke text displayed in the attachment"
+          }
+        }
+      }
+    },
+    "response_type": {
+      "type": "string",
+      "description": "Slack response visibility type",
+      "enum": ["in_channel", "ephemeral"],
+      "example": "in_channel"
+    },
+    "username": {
+      "type": "string",
+      "description": "The bot username shown in Slack",
+      "example": "icanhazdadjoke"
+    }
+  }
+}
