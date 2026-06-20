@@ -5,7 +5,7 @@ description: >-
   selection of dad jokes. It offers random joke retrieval, a searchable joke
   database, Slack slash command integration, Discord bot support, and plain-text
   or JSON responses — all with no authentication required.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/dad-jokes/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -26,7 +26,7 @@ apis:
       searching jokes by keyword, and integrating dad jokes into Slack and
       Discord bots. Supports JSON, plain-text, and HTML responses via Accept
       headers. No API key or authentication required.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://icanhazdadjoke.com/api
     baseURL: https://icanhazdadjoke.com
     tags:
