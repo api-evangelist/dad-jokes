@@ -42,6 +42,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/dad-jokes/refs/heads/main/openapi/dad-jokes-openapi.json
 common:
+  - type: DomainSecurity
+    url: security/dad-jokes-domain-security.yml
   - type: Website
     url: https://icanhazdadjoke.com/
   - type: Documentation
