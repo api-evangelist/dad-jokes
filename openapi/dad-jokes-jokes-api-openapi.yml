@@ -1,0 +1,306 @@
+openapi: 3.0.3
+info:
+  title: icanhazdadjoke Integrations Jokes API
+  description: Free REST API providing access to the internet's largest selection of dad jokes. Supports random joke retrieval, joke lookup by ID, keyword search, Slack slash command integration, and Discord bot support. No authentication required.
+  version: 1.0.0
+  contact:
+    url: https://icanhazdadjoke.com/api
+  license:
+    name: Free to use
+servers:
+- url: https://icanhazdadjoke.com
+  description: Production server
+tags:
+- name: Jokes
+  description: Dad joke retrieval and search
+paths:
+  /:
+    get:
+      operationId: getRandomJoke
+      summary: Fetch a random dad joke
+      description: 'Returns a random dad joke. The response format depends on the Accept header: application/json returns JSON, text/plain returns plain text, text/html returns an HTML page.'
+      tags:
+      - Jokes
+      parameters:
+      - name: Accept
+        in: header
+        description: Desired response format
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+          - text/plain
+          - text/html
+          default: text/html
+      responses:
+        '200':
+          description: A random dad joke
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+              example:
+                id: R7UfaahVfFd
+                joke: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+                status: 200
+            text/plain:
+              schema:
+                type: string
+              example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+            text/html:
+              schema:
+                type: string
+  /j/{jokeId}:
+    get:
+      operationId: getJokeById
+      summary: Fetch a specific joke by ID
+      description: Returns a specific dad joke by its unique ID. The response format depends on the Accept header.
+      tags:
+      - Jokes
+      parameters:
+      - name: jokeId
+        in: path
+        description: Unique identifier of the joke
+        required: true
+        schema:
+          type: string
+        example: R7UfaahVfFd
+      - name: Accept
+        in: header
+        description: Desired response format
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+          - text/plain
+          - text/html
+          default: text/html
+      responses:
+        '200':
+          description: The requested joke
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+            text/plain:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type: string
+        '404':
+          description: Joke not found
+  /j/{jokeId}.png:
+    get:
+      operationId: getJokeAsImage
+      summary: Fetch a joke rendered as a PNG image
+      description: Returns the specified dad joke rendered as a PNG image.
+      tags:
+      - Jokes
+      parameters:
+      - name: jokeId
+        in: path
+        description: Unique identifier of the joke
+        required: true
+        schema:
+          type: string
+        example: R7UfaahVfFd
+      responses:
+        '200':
+          description: The joke rendered as a PNG image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Joke not found
+  /search:
+    get:
+      operationId: searchJokes
+      summary: Search dad jokes
+      description: Search for dad jokes by keyword. Returns a paginated list of matching jokes. If no term is provided, all jokes are returned.
+      tags:
+      - Jokes
+      parameters:
+      - name: term
+        in: query
+        description: Search term to filter jokes. Omit to list all jokes.
+        required: false
+        schema:
+          type: string
+        example: hipster
+      - name: page
+        in: query
+        description: Page number of results
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: limit
+        in: query
+        description: Number of results per page
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 20
+      - name: Accept
+        in: header
+        description: Desired response format
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+          - text/plain
+          default: application/json
+      responses:
+        '200':
+          description: Paginated list of matching jokes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JokeSearchResults'
+              example:
+                current_page: 1
+                limit: 20
+                next_page: 2
+                previous_page: 1
+                results:
+                - id: R7UfaahVfFd
+                  joke: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+                search_term: dog
+                status: 200
+                total_jokes: 42
+                total_pages: 3
+  /graphql:
+    post:
+      operationId: graphqlQuery
+      summary: Execute a GraphQL query
+      description: Execute a GraphQL query against the icanhazdadjoke GraphQL endpoint. Supports querying joke fields including id, joke, and permalink.
+      tags:
+      - Jokes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - query
+              properties:
+                query:
+                  type: string
+                  description: GraphQL query string
+                  example: '{ joke { id joke permalink } }'
+      responses:
+        '200':
+          description: GraphQL response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      joke:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          joke:
+                            type: string
+                          permalink:
+                            type: string
+                            format: uri
+components:
+  schemas:
+    Joke:
+      type: object
+      required:
+      - id
+      - joke
+      - status
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the joke
+          example: R7UfaahVfFd
+        joke:
+          type: string
+          description: The dad joke text
+          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+        status:
+          type: integer
+          description: HTTP status code
+          example: 200
+    JokeSearchResult:
+      type: object
+      required:
+      - id
+      - joke
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the joke
+          example: R7UfaahVfFd
+        joke:
+          type: string
+          description: The dad joke text
+          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+    JokeSearchResults:
+      type: object
+      required:
+      - current_page
+      - limit
+      - next_page
+      - previous_page
+      - results
+      - search_term
+      - status
+      - total_jokes
+      - total_pages
+      properties:
+        current_page:
+          type: integer
+          description: Current page number
+          example: 1
+        limit:
+          type: integer
+          description: Number of results per page
+          example: 20
+        next_page:
+          type: integer
+          description: Next page number
+          example: 2
+        previous_page:
+          type: integer
+          description: Previous page number
+          example: 1
+        results:
+          type: array
+          description: Array of matching jokes
+          items:
+            $ref: '#/components/schemas/JokeSearchResult'
+        search_term:
+          type: string
+          description: The search term used
+          example: dog
+        status:
+          type: integer
+          description: HTTP status code
+          example: 200
+        total_jokes:
+          type: integer
+          description: Total number of matching jokes
+          example: 42
+        total_pages:
+          type: integer
+          description: Total number of pages
+          example: 3

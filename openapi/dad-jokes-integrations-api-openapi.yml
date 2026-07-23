@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: icanhazdadjoke Integrations API
+  description: Free REST API providing access to the internet's largest selection of dad jokes. Supports random joke retrieval, joke lookup by ID, keyword search, Slack slash command integration, and Discord bot support. No authentication required.
+  version: 1.0.0
+  contact:
+    url: https://icanhazdadjoke.com/api
+  license:
+    name: Free to use
+servers:
+- url: https://icanhazdadjoke.com
+  description: Production server
+tags:
+- name: Integrations
+  description: Slack and Discord integration endpoints
+paths:
+  /slack:
+    get:
+      operationId: getRandomJokeForSlack
+      summary: Fetch a random joke formatted for Slack
+      description: Returns a random dad joke formatted as a Slack message payload, suitable for use as a Slack slash command response.
+      tags:
+      - Integrations
+      responses:
+        '200':
+          description: Slack-formatted joke response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SlackResponse'
+              example:
+                attachments:
+                - fallback: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+                  footer: icanhazdadjoke.com | <https://icanhazdadjoke.com/j/R7UfaahVfFd>
+                  text: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+                response_type: in_channel
+                username: icanhazdadjoke
+components:
+  schemas:
+    SlackAttachment:
+      type: object
+      properties:
+        fallback:
+          type: string
+          description: Plain text fallback for the attachment
+        footer:
+          type: string
+          description: Footer text with attribution
+        text:
+          type: string
+          description: The joke text
+    SlackResponse:
+      type: object
+      properties:
+        attachments:
+          type: array
+          description: Slack message attachments
+          items:
+            $ref: '#/components/schemas/SlackAttachment'
+        response_type:
+          type: string
+          description: Slack response type
+          example: in_channel
+        username:
+          type: string
+          description: Bot username displayed in Slack
+          example: icanhazdadjoke
