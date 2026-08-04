@@ -1,0 +1,16 @@
+{
+  "provider": "dad-jokes",
+  "sources": [
+    "dad-jokes-integrations-api-openapi.yml",
+    "dad-jokes-jokes-api-openapi.yml"
+  ],
+  "outputs": [
+    "dad-jokes-integrations-api-openapi.yml",
+    "dad-jokes-jokes-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
