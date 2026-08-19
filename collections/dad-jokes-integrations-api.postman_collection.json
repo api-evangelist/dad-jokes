@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "9224ae34-fb33-4d7a-b270-b94991b5cd1c",
+      "name": "Integrations",
+      "description": {
+        "content": "Slack and Discord integration endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eed98e6f-dc29-4f9c-8869-99b2ce5b2cb6",
+          "name": "Fetch a random joke formatted for Slack",
+          "request": {
+            "name": "Fetch a random joke formatted for Slack",
+            "description": {
+              "content": "Returns a random dad joke formatted as a Slack message payload, suitable for use as a Slack slash command response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "slack"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8aaeb1c0-c68f-4146-b84b-a43776d9e4db",
+              "name": "Slack-formatted joke response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slack"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attachments\": [\n    {\n      \"fallback\": \"My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.\",\n      \"footer\": \"icanhazdadjoke.com | <https://icanhazdadjoke.com/j/R7UfaahVfFd>\",\n      \"text\": \"My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.\"\n    }\n  ],\n  \"response_type\": \"in_channel\",\n  \"username\": \"icanhazdadjoke\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://icanhazdadjoke.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "715d00c3-d474-4f14-9d54-c2a9fbed2274",
+    "name": "icanhazdadjoke Integrations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free REST API providing access to the internet's largest selection of dad jokes. Supports random joke retrieval, joke lookup by ID, keyword search, Slack slash command integration, and Discord bot support. No authentication required.",
+      "type": "text/plain"
+    }
+  }
+}

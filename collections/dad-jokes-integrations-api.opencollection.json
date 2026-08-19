@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "icanhazdadjoke Integrations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch a random joke formatted for Slack",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://icanhazdadjoke.com/slack"
+          },
+          "docs": "Returns a random dad joke formatted as a Slack message payload, suitable for use as a Slack slash command response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "icanhazdadjoke Integrations Jokes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jokes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch a random dad joke",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://icanhazdadjoke.com/",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns a random dad joke. The response format depends on the Accept header: application/json returns JSON, text/plain returns plain text, text/html returns an HTML page."
+        },
+        {
+          "info": {
+            "name": "Fetch a specific joke by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://icanhazdadjoke.com/j/:jokeId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "jokeId",
+                "value": "R7UfaahVfFd",
+                "type": "path",
+                "description": "Unique identifier of the joke"
+              }
+            ]
+          },
+          "docs": "Returns a specific dad joke by its unique ID. The response format depends on the Accept header."
+        },
+        {
+          "info": {
+            "name": "Fetch a joke rendered as a PNG image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://icanhazdadjoke.com/j/:jokeId.png",
+            "params": [
+              {
+                "name": "jokeId",
+                "value": "R7UfaahVfFd",
+                "type": "path",
+                "description": "Unique identifier of the joke"
+              }
+            ]
+          },
+          "docs": "Returns the specified dad joke rendered as a PNG image."
+        },
+        {
+          "info": {
+            "name": "Search dad jokes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://icanhazdadjoke.com/search",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "term",
+                "value": "hipster",
+                "type": "query",
+                "description": "Search term to filter jokes. Omit to list all jokes."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page"
+              }
+            ]
+          },
+          "docs": "Search for dad jokes by keyword. Returns a paginated list of matching jokes. If no term is provided, all jokes are returned."
+        },
+        {
+          "info": {
+            "name": "Execute a GraphQL query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://icanhazdadjoke.com/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a GraphQL query against the icanhazdadjoke GraphQL endpoint. Supports querying joke fields including id, joke, and permalink."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

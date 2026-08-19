@@ -1,0 +1,559 @@
+{
+  "item": [
+    {
+      "id": "9b8201e9-9cfe-471d-beac-178dcf035adc",
+      "name": "Jokes",
+      "description": {
+        "content": "Dad joke retrieval and search",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e0c63926-bcf0-4111-b36e-4ee9b7a5aa27",
+          "name": "Fetch a random dad joke",
+          "request": {
+            "name": "Fetch a random dad joke",
+            "description": {
+              "content": "Returns a random dad joke. The response format depends on the Accept header: application/json returns JSON, text/plain returns plain text, text/html returns an HTML page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b73a97c8-106c-419b-af8f-c9b43dab422c",
+              "name": "A random dad joke",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "text/html"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"R7UfaahVfFd\",\n  \"joke\": \"My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.\",\n  \"status\": 200\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a32d98e-afdf-4619-9cea-c33f32243f13",
+          "name": "Fetch a specific joke by ID",
+          "request": {
+            "name": "Fetch a specific joke by ID",
+            "description": {
+              "content": "Returns a specific dad joke by its unique ID. The response format depends on the Accept header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "j",
+                ":jokeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jokeId",
+                  "description": "(Required) Unique identifier of the joke"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f657dda-c371-4978-af85-0685f3316f21",
+              "name": "The requested joke",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "j",
+                    ":jokeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jokeId",
+                      "description": "(Required) Unique identifier of the joke"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "text/html"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"R7UfaahVfFd\",\n  \"joke\": \"My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.\",\n  \"status\": 200\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b0ffed2-c1bf-461c-bab0-aa177f3b63ec",
+              "name": "Joke not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "j",
+                    ":jokeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jokeId",
+                      "description": "(Required) Unique identifier of the joke"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0c31992-0234-4be3-971f-1c6684cf709a",
+          "name": "Fetch a joke rendered as a PNG image",
+          "request": {
+            "name": "Fetch a joke rendered as a PNG image",
+            "description": {
+              "content": "Returns the specified dad joke rendered as a PNG image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "j",
+                "{{jokeId}}.png"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8d465b4-a95f-44e5-a946-ca4ea63f5315",
+              "name": "The joke rendered as a PNG image",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "j",
+                    "{{jokeId}}.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "352c398d-43e9-4e00-be3c-4615ccce4156",
+              "name": "Joke not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "j",
+                    "{{jokeId}}.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8330442f-360e-439b-bcaf-fdf4570582d0",
+          "name": "Search dad jokes",
+          "request": {
+            "name": "Search dad jokes",
+            "description": {
+              "content": "Search for dad jokes by keyword. Returns a paginated list of matching jokes. If no term is provided, all jokes are returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "term",
+                  "value": "<string>",
+                  "description": "Search term to filter jokes. Omit to list all jokes."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number of results"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b88b7d69-6032-445f-a9b7-1e92493ee28f",
+              "name": "Paginated list of matching jokes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "term",
+                      "value": "hipster"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_page\": 1,\n  \"limit\": 20,\n  \"next_page\": 2,\n  \"previous_page\": 1,\n  \"results\": [\n    {\n      \"id\": \"R7UfaahVfFd\",\n      \"joke\": \"My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.\"\n    }\n  ],\n  \"search_term\": \"dog\",\n  \"status\": 200,\n  \"total_jokes\": 42,\n  \"total_pages\": 3\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5e4616f-6070-481f-bf75-c16198505fa2",
+          "name": "Execute a GraphQL query",
+          "request": {
+            "name": "Execute a GraphQL query",
+            "description": {
+              "content": "Execute a GraphQL query against the icanhazdadjoke GraphQL endpoint. Supports querying joke fields including id, joke, and permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "536d7a22-1727-4ceb-aa3a-f9c3de0bc4ef",
+              "name": "GraphQL response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"{ joke { id joke permalink } }\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"joke\": {\n      \"id\": \"string\",\n      \"joke\": \"string\",\n      \"permalink\": \"http://CxzOoHSgRiffxkHXvzToJuAz.vvwazd3BtxZVHnZLkSE+t7hSCRCzBzJkQnlaXagTPxz0SYvPvuUj\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://icanhazdadjoke.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Unique identifier of the joke",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "jokeId"
+    }
+  ],
+  "info": {
+    "_postman_id": "56231ca4-d1c4-4e20-9203-7c66fd2df006",
+    "name": "icanhazdadjoke Integrations Jokes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free REST API providing access to the internet's largest selection of dad jokes. Supports random joke retrieval, joke lookup by ID, keyword search, Slack slash command integration, and Discord bot support. No authentication required.",
+      "type": "text/plain"
+    }
+  }
+}
