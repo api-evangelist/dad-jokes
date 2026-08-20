@@ -37,6 +37,8 @@ apis:
   humanURL: https://icanhazdadjoke.com/api
   baseURL: https://icanhazdadjoke.com
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
