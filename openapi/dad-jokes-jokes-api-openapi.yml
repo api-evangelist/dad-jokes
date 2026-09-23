@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: icanhazdadjoke Integrations Jokes API
+  title: icanhazdadjoke Jokes API
   description: Free REST API providing access to the internet's largest selection of dad jokes. Supports random joke retrieval, joke lookup by ID, keyword search, Slack slash command integration, and Discord bot support. No authentication required.
   version: 1.0.0
   contact:
@@ -221,39 +221,6 @@ paths:
                             format: uri
 components:
   schemas:
-    Joke:
-      type: object
-      required:
-      - id
-      - joke
-      - status
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the joke
-          example: R7UfaahVfFd
-        joke:
-          type: string
-          description: The dad joke text
-          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-        status:
-          type: integer
-          description: HTTP status code
-          example: 200
-    JokeSearchResult:
-      type: object
-      required:
-      - id
-      - joke
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the joke
-          example: R7UfaahVfFd
-        joke:
-          type: string
-          description: The dad joke text
-          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
     JokeSearchResults:
       type: object
       required:
@@ -304,3 +271,36 @@ components:
           type: integer
           description: Total number of pages
           example: 3
+    Joke:
+      type: object
+      required:
+      - id
+      - joke
+      - status
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the joke
+          example: R7UfaahVfFd
+        joke:
+          type: string
+          description: The dad joke text
+          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+        status:
+          type: integer
+          description: HTTP status code
+          example: 200
+    JokeSearchResult:
+      type: object
+      required:
+      - id
+      - joke
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the joke
+          example: R7UfaahVfFd
+        joke:
+          type: string
+          description: The dad joke text
+          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.

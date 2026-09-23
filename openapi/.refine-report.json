@@ -1,8 +1,7 @@
 {
   "provider": "dad-jokes",
   "sources": [
-    "dad-jokes-integrations-api-openapi.yml",
-    "dad-jokes-jokes-api-openapi.yml"
+    "_original/dad-jokes-openapi.json"
   ],
   "outputs": [
     "dad-jokes-integrations-api-openapi.yml",
@@ -11,6 +10,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dad-jokes-openapi.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "dad-jokes-integrations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dad-jokes-jokes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
