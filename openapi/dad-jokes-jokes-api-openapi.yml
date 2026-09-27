@@ -221,6 +221,20 @@ paths:
                             format: uri
 components:
   schemas:
+    JokeSearchResult:
+      type: object
+      required:
+      - id
+      - joke
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the joke
+          example: R7UfaahVfFd
+        joke:
+          type: string
+          description: The dad joke text
+          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
     JokeSearchResults:
       type: object
       required:
@@ -290,17 +304,3 @@ components:
           type: integer
           description: HTTP status code
           example: 200
-    JokeSearchResult:
-      type: object
-      required:
-      - id
-      - joke
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the joke
-          example: R7UfaahVfFd
-        joke:
-          type: string
-          description: The dad joke text
-          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.

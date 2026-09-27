@@ -47,7 +47,6 @@ apis:
   name: Dad Jokes (icanhazdadjoke) Integrations API
   description: Slack and Discord integration endpoints
   humanURL: https://icanhazdadjoke.com/api
-  baseURL: https://icanhazdadjoke.com
   tags:
   - Integration
   tags_raw:
@@ -61,7 +60,6 @@ apis:
   name: Dad Jokes (icanhazdadjoke) Jokes API
   description: Dad joke retrieval and search
   humanURL: https://icanhazdadjoke.com/api
-  baseURL: https://icanhazdadjoke.com
   tags:
   - Jokes
   properties:
