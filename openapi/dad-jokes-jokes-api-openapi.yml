@@ -235,6 +235,25 @@ components:
           type: string
           description: The dad joke text
           example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+    Joke:
+      type: object
+      required:
+      - id
+      - joke
+      - status
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the joke
+          example: R7UfaahVfFd
+        joke:
+          type: string
+          description: The dad joke text
+          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+        status:
+          type: integer
+          description: HTTP status code
+          example: 200
     JokeSearchResults:
       type: object
       required:
@@ -285,22 +304,3 @@ components:
           type: integer
           description: Total number of pages
           example: 3
-    Joke:
-      type: object
-      required:
-      - id
-      - joke
-      - status
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the joke
-          example: R7UfaahVfFd
-        joke:
-          type: string
-          description: The dad joke text
-          example: My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-        status:
-          type: integer
-          description: HTTP status code
-          example: 200

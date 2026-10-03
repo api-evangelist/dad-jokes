@@ -37,6 +37,18 @@ paths:
                 username: icanhazdadjoke
 components:
   schemas:
+    SlackAttachment:
+      type: object
+      properties:
+        fallback:
+          type: string
+          description: Plain text fallback for the attachment
+        footer:
+          type: string
+          description: Footer text with attribution
+        text:
+          type: string
+          description: The joke text
     SlackResponse:
       type: object
       properties:
@@ -53,15 +65,3 @@ components:
           type: string
           description: Bot username displayed in Slack
           example: icanhazdadjoke
-    SlackAttachment:
-      type: object
-      properties:
-        fallback:
-          type: string
-          description: Plain text fallback for the attachment
-        footer:
-          type: string
-          description: Footer text with attribution
-        text:
-          type: string
-          description: The joke text
